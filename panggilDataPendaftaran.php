@@ -92,7 +92,7 @@ try {
 
         // Query Tambahan untuk child Anamnesa 
 
-        $sqlChildAnamnesa = "SELECT keluhanutama,keterangananamnesa,riwayatpenyakitterdahulu,riwayatalergiobat,reaksialergimakanan,riwayatalergiobat,tindakanmedis,konsultasidokter from anamnesa_t WHERE pendaftaran_id = " . $row['pendaftaran_id'] . ""; // Sesuaikan dengan kondisi Anda
+        $sqlChildAnamnesa = "SELECT keluhanutama,anamnesa_t.keterangananamesa,riwayatpenyakitterdahulu,riwayatalergiobat,reaksialergimakanan,riwayatalergiobat,tindakanmedis,konsultasidokter from anamnesa_t WHERE pendaftaran_id = " . $row['pendaftaran_id'] . ""; // Sesuaikan dengan kondisi Anda
         $stmtChildAnamnesa = $pdo->query($sqlChildAnamnesa);
         $childAnamnesa = $stmtChildAnamnesa->fetchAll(PDO::FETCH_ASSOC);
 
