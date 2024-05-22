@@ -96,10 +96,23 @@ try {
         $stmtChildAnamnesa = $pdo->query($sqlChildAnamnesa);
         $childAnamnesa = $stmtChildAnamnesa->fetchAll(PDO::FETCH_ASSOC);
 
+
+        
         // Tambahkan objek child_diagnosa ke dalam $row
         $row["child_diagnosa"] = $childDiagnosa;
         $row["child_triase"] = $childTriase;
         $row["child_anamnesa"] = $childAnamnesa;
+
+
+        // Query Tambahan Untuk Penunjang 
+
+
+        $sqlDataJKN = "SELECT  kelompoktindakanbpjs_nama, daftartindakan_nama from datajknpenunjang_v WHERE pendaftaran_id = " . $row['pendaftaran_id'] . ""; // Sesuaikan dengan kondisi Anda
+        $stmtsqlDataJKN = $pdo->query($sqlDataJKN);
+        $childsqlDataJKN = $stmtsqlDataJKN->fetchAll(PDO::FETCH_ASSOC);
+
+
+        $row["chilDataPenunjang"] = $childsqlDataJKN;
 
         // Tambahkan $row yang sudah dimodifikasi ke dalam array $data
         $data[] = $row;
