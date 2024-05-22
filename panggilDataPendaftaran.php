@@ -79,7 +79,7 @@ try {
         FROM 
         asesmentriase_t 
     LEFT JOIN 
-        pegawai_m  ON asesmentriase_t.dpjp_id = pegawai_m.pegawai_id 
+        pegawai_m  ON asesmentriase_t.pegawai_id = pegawai_m.pegawai_id 
     LEFT JOIN 
         gelarbelakang_m  ON pegawai_m.gelarbelakang_id = gelarbelakang_m.gelarbelakang_id
     WHERE 
