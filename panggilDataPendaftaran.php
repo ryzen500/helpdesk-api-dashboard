@@ -32,7 +32,7 @@ try {
                 pasienadmisi_t ON infokunjunganrd_v.pendaftaran_id = pasienadmisi_t.pendaftaran_id"; // Sesuaikan dengan tabel dan kolom Anda
     if ($query) {
         // Tambahkan kondisi WHERE jika ada parameter pencarian
-        $sql .= " WHERE no_rekam_medik ILIKE :search"; // ILIKE mendukung pencarian case-insensitive
+        $sql .= " WHERE no_pendaftaran ILIKE :search"; // ILIKE mendukung pencarian case-insensitive
     } else {
         $sql .= " LIMIT 10"; // ILIKE mendukung pencarian case-insensitive
 
