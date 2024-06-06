@@ -25,9 +25,17 @@ try {
                 no_rekam_medik, 
                 diagnosa_rujukan, 
                 diagnosa_nama, 
-                kelompokdiagnosa_id 
+                kelompokdiagnosa_id,
+                infokunjunganrd_v.pegawai_id,
+                pegawai_m.gelardepan, 
+                pegawai_m.nama_pegawai, 
+                COALESCE(gelarbelakang_m.gelarbelakang_nama, '') AS gelarbelakang_nama
             FROM 
                 infokunjunganrd_v 
+            LEFT JOIN 
+             pegawai_m ON infokunjunganrd_v.pegawai_id = pegawai_m.pegawai_id
+             LEFT JOIN 
+        gelarbelakang_m  ON pegawai_m.gelarbelakang_id = gelarbelakang_m.gelarbelakang_id
             LEFT JOIN 
                 pasienadmisi_t ON infokunjunganrd_v.pendaftaran_id = pasienadmisi_t.pendaftaran_id"; // Sesuaikan dengan tabel dan kolom Anda
     if ($query) {
@@ -72,16 +80,11 @@ try {
         ) AS gcs_nilai,
         lingkar_kepala, 
         lingkar_lengan, 
-        lingkar_dada,
-        pegawai_m.gelardepan, 
-        pegawai_m.nama_pegawai, 
-        COALESCE(gelarbelakang_m.gelarbelakang_nama, '') AS gelarbelakang_nama
+        lingkar_dada
         FROM 
-        asesmentriase_t 
+        asesmentriase_t    
     LEFT JOIN 
         pegawai_m  ON asesmentriase_t.pegawai_id = pegawai_m.pegawai_id 
-    LEFT JOIN 
-        gelarbelakang_m  ON pegawai_m.gelarbelakang_id = gelarbelakang_m.gelarbelakang_id
     WHERE 
         pendaftaran_id = " . $row['pendaftaran_id'];
 
