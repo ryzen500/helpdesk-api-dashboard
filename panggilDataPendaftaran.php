@@ -56,7 +56,7 @@ try {
 
         // Fetch child data
         $row['child_diagnosa'] = fetchChildData($pdo, 'pasienmorbiditas_t', 'diagnosa_m.diagnosa_nama', 'diagnosa_m', 'diagnosa_id', $pendaftaran_id, 'kelompokdiagnosa_id = 3');
-        $row['child_triase'] = fetchChildData($pdo, 'asesmentriase_t', 'DATE(tglasesmentriase) as tglasesmentriase,td_systolic, td_diastolic, detaknadi, pernapasan, suhutubuh, tinggibadan_cm, beratbadan_kg, spo2 AS spo, CONCAT(TRIM(COALESCE(CAST(gcs_eye AS CHAR(10)), \'\')), \', \', TRIM(COALESCE(CAST(gcs_verbal AS CHAR(10)), \'\')), \', \', TRIM(COALESCE(CAST(gcs_motorik AS CHAR(10)), \'\'))) AS gcs_nilai, lingkar_kepala, lingkar_lengan, lingkar_dada', 'pegawai_m', 'pegawai_id', $pendaftaran_id);
+        $row['child_triase'] = fetchChildData($pdo, 'asesmentriase_t', 'tglasesmentriase,td_systolic, td_diastolic, detaknadi, pernapasan, suhutubuh, tinggibadan_cm, beratbadan_kg, spo2 AS spo, CONCAT(TRIM(COALESCE(CAST(gcs_eye AS CHAR(10)), \'\')), \', \', TRIM(COALESCE(CAST(gcs_verbal AS CHAR(10)), \'\')), \', \', TRIM(COALESCE(CAST(gcs_motorik AS CHAR(10)), \'\'))) AS gcs_nilai, lingkar_kepala, lingkar_lengan, lingkar_dada', 'pegawai_m', 'pegawai_id', $pendaftaran_id);
         $row['child_anamnesa'] = fetchChildData($pdo, 'anamnesa_t', 'keluhanutama, keterangananamesa, riwayatpenyakitterdahulu, riwayatalergiobat, reaksialergimakanan, tindakanmedis, konsultasidokter', null, null, $pendaftaran_id);
         $row['chilDataPenunjang'] = fetchChildData($pdo, 'datajknpenunjang_v', 'kelompoktindakanbpjs_nama, daftartindakan_nama', null, null, $pendaftaran_id);
 
