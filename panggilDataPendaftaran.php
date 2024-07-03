@@ -1,4 +1,11 @@
 <?php
+
+// Add the CORS headers
+header("Access-Control-Allow-Origin: *"); // Allow all origins (or specify particular domains)
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS"); // Allowed HTTP methods
+header("Access-Control-Allow-Headers: Content-Type, Authorization"); // Allowed custom headers
+header("Access-Control-Allow-Credentials: true"); // Allow credentials like cookies
+
 // Koneksi ke database PostgreSQL menggunakan PDO
 $dsn = 'pgsql:host=192.168.214.225;port=5121;dbname=db_rswb_running_new';
 $user = 'developer';
